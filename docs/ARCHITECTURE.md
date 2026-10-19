@@ -16,4 +16,4 @@ Dependencies in `package.json` do not establish functional integrations. A propo
 
 ### Container and automation
 
-The Dockerfile installs dependencies and builds the Next.js application. GitHub Actions checks dependencies, linting, types and build. The existing npm lockfile requires reconciliation. Tests are documented in [TESTING.md](TESTING.md).
+The Dockerfile installs dependencies and builds the Next.js application. Run linting, type checking and build commands before deployment. The existing npm lockfile requires reconciliation. Tests are documented in [TESTING.md](TESTING.md).
