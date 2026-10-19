@@ -1,18 +1,16 @@
-# WazirX — Next.js Project Scaffold
+# WazirX — Next.js Application Scaffold
 
-This repository currently contains a **Next.js 14 / React 18 / TypeScript configuration scaffold**, but the original `main` branch does **not** include application source code, API routes or a Prisma schema. This repair adds a transparent starter landing page and a valid development entry point. It **does not recreate or claim to implement** a cryptocurrency exchange, wallet, live market data, trading or authentication.
+> **Status:** Functional starter interface, **not a cryptocurrency exchange**. The original connected branch contains configuration files but no exchange source code, wallets, API routes or database schema.
 
-## Current functionality
+This repository currently demonstrates the Next.js application shell and deployment-oriented configuration. Do not represent it as a working trading, authentication or Solana integration.
 
-- A responsive starter page at `/` describing the repository's status.
-- A Next.js development server and production build configuration.
-- An environment-variable example for future integrations.
+## Technology
 
-**Not implemented:** Solana wallet flows, token transfers, exchange APIs, NextAuth callbacks, database models, Prisma migrations, production deployment, trade execution or financial services. Configuration dependencies alone are not proof of working integrations.
+Next.js 14, React 18, TypeScript, CSS and Node.js. The dependency manifest also lists Prisma, NextAuth, and Solana libraries, but corresponding features are **not implemented**.
 
 ## Getting started
 
-Use Node.js 20 or later, then:
+Use Node.js 20 or later.
 
 ```bash
 git clone https://github.com/DemonJ01/WazirX.git
@@ -21,7 +19,19 @@ npm install
 npm run dev
 ```
 
-Visit http://localhost:3000 to view the starter page.
+Open http://localhost:3000.
+
+## Repository organization
+
+```text
+app/layout.tsx             HTML root layout
+app/page.tsx               Starter page with accurate scope disclaimer
+app/globals.css            Responsive styling
+Dockerfile                 Node application container definition
+package.json               npm commands and dependency list
+.env.example               Environment placeholders only
+.github/workflows/         CI build checks
+```
 
 ## Verification
 
@@ -31,23 +41,18 @@ npx tsc --noEmit
 npm run build
 ```
 
-These commands require dependencies and a suitable Node.js environment. The existing package-lock.json is out of sync with package.json (confirmed by CI), so npm install is used temporarily. Regenerate and commit a synchronized lockfile before switching to npm ci; npm should be the canonical package manager, and the historical yarn.lock needs review.
+The tracked `package-lock.json` was inconsistent with `package.json` in an initial GitHub Actions run. The interim workflow uses `npm install`. Generate and commit a synchronized lockfile before switching to `npm ci`; the historical `yarn.lock` also requires review. A successful starter build would not verify future exchange functionality.
 
-## Project structure
+## Architecture and documentation
 
-```text
-app/                 Minimal landing page and global styles
-package.json         Dependencies and scripts
-next.config.mjs      Next.js configuration
-tsconfig.json        TypeScript configuration
-.env.example         Placeholder variable names; no secrets
-Dockerfile           Basic container build
-```
+Read [Architecture](docs/ARCHITECTURE.md), [Testing](docs/TESTING.md), [Known limitations](docs/KNOWN_LIMITATIONS.md), [Contributing](CONTRIBUTING.md) and [Security](SECURITY.md).
 
-## Known missing original components
+## Not implemented
 
-The original application source is not available on the connected `main` branch. If you have the actual project locally or on another branch, restore it and inspect the functionality before replacing this starter. A Prisma schema must be supplied before `prisma generate` or migrations can run. No real market operations or integrations were validated.
+No original exchange business logic, trading services, crypto wallet flows, token transfers, user authentication backend, Prisma schema, migrations, market pricing service, payment processing or financial compliance controls are included.
 
-## Security
+**Do not deploy this starter as a real money/crypto exchange** or ask visitors to enter wallet seeds, authentication tokens or payment details.
 
-Never commit secrets, wallet keys, session tokens, or live API credentials. Do not deploy this starter as a real trading platform. Vet and update dependencies deliberately, keeping lockfiles synchronized.
+## Licensing
+
+No new license is granted by this cleanup. Confirm code ownership and third-party obligations before selecting a license.
