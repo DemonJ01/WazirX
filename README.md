@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# WazirX — Next.js Project Scaffold
 
-## Getting Started
+This repository currently contains a **Next.js 14 / React 18 / TypeScript configuration scaffold**, but the original `main` branch does **not** include application source code, API routes or a Prisma schema. This repair adds a transparent starter landing page and a valid development entry point. It **does not recreate or claim to implement** a cryptocurrency exchange, wallet, live market data, trading or authentication.
 
-First, run the development server:
+## Current functionality
+
+- A responsive starter page at `/` describing the repository's status.
+- A Next.js development server and production build configuration.
+- An environment-variable example for future integrations.
+
+**Not implemented:** Solana wallet flows, token transfers, exchange APIs, NextAuth callbacks, database models, Prisma migrations, production deployment, trade execution or financial services. Configuration dependencies alone are not proof of working integrations.
+
+## Getting started
+
+Use Node.js 20 or later, then:
 
 ```bash
+git clone https://github.com/DemonJ01/WazirX.git
+cd WazirX
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit http://localhost:3000 to view the starter page.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Verification
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```bash
+npm run lint
+npx tsc --noEmit
+npm run build
+```
 
-## Learn More
+These commands require dependencies and a suitable Node.js environment. Running `npm ci` uses the tracked `package-lock.json`. The repository also contains a historical `yarn.lock`; use npm as the canonical package manager until the lockfiles are reconciled.
 
-To learn more about Next.js, take a look at the following resources:
+## Project structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```text
+app/                 Minimal landing page and global styles
+package.json         Dependencies and scripts
+next.config.mjs      Next.js configuration
+tsconfig.json        TypeScript configuration
+.env.example         Placeholder variable names; no secrets
+Dockerfile           Basic container build
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Known missing original components
 
-## Deploy on Vercel
+The original application source is not available on the connected `main` branch. If you have the actual project locally or on another branch, restore it and inspect the functionality before replacing this starter. A Prisma schema must be supplied before `prisma generate` or migrations can run. No real market operations or integrations were validated.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Security
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Never commit secrets, wallet keys, session tokens, or live API credentials. Do not deploy this starter as a real trading platform. Vet and update dependencies deliberately, keeping lockfiles synchronized.
