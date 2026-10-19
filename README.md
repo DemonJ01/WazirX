@@ -17,7 +17,7 @@ Use Node.js 20 or later, then:
 ```bash
 git clone https://github.com/DemonJ01/WazirX.git
 cd WazirX
-npm ci
+npm install
 npm run dev
 ```
 
@@ -31,7 +31,7 @@ npx tsc --noEmit
 npm run build
 ```
 
-These commands require dependencies and a suitable Node.js environment. Running `npm ci` uses the tracked `package-lock.json`. The repository also contains a historical `yarn.lock`; use npm as the canonical package manager until the lockfiles are reconciled.
+These commands require dependencies and a suitable Node.js environment. The existing package-lock.json is out of sync with package.json (confirmed by CI), so npm install is used temporarily. Regenerate and commit a synchronized lockfile before switching to npm ci; npm should be the canonical package manager, and the historical yarn.lock needs review.
 
 ## Project structure
 
