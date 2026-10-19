@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# WazirX — Next.js Application Scaffold
 
-## Getting Started
+> **Status:** Functional starter interface, **not a cryptocurrency exchange**. The original connected branch contains configuration files but no exchange source code, wallets, API routes or database schema.
 
-First, run the development server:
+This repository currently demonstrates the Next.js application shell and deployment-oriented configuration. Do not represent it as a working trading, authentication or Solana integration.
+
+## Technology
+
+Next.js 14, React 18, TypeScript, CSS and Node.js. The dependency manifest also lists Prisma, NextAuth, and Solana libraries, but corresponding features are **not implemented**.
+
+## Getting started
+
+Use Node.js 20 or later.
 
 ```bash
+git clone https://github.com/DemonJ01/WazirX.git
+cd WazirX
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Repository organization
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```text
+app/layout.tsx             HTML root layout
+app/page.tsx               Starter page with accurate scope disclaimer
+app/globals.css            Responsive styling
+Dockerfile                 Node application container definition
+package.json               npm commands and dependency list
+.env.example               Environment placeholders only
+.github/workflows/         CI build checks
+```
 
-## Learn More
+## Verification
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run lint
+npx tsc --noEmit
+npm run build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The tracked `package-lock.json` was inconsistent with `package.json` in an initial GitHub Actions run. The interim workflow uses `npm install`. Generate and commit a synchronized lockfile before switching to `npm ci`; the historical `yarn.lock` also requires review. A successful starter build would not verify future exchange functionality.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Architecture and documentation
 
-## Deploy on Vercel
+Read [Architecture](docs/ARCHITECTURE.md), [Testing](docs/TESTING.md), [Known limitations](docs/KNOWN_LIMITATIONS.md), [Contributing](CONTRIBUTING.md) and [Security](SECURITY.md).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Not implemented
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+No original exchange business logic, trading services, crypto wallet flows, token transfers, user authentication backend, Prisma schema, migrations, market pricing service, payment processing or financial compliance controls are included.
+
+**Do not deploy this starter as a real money/crypto exchange** or ask visitors to enter wallet seeds, authentication tokens or payment details.
+
+## Licensing
+
+No new license is granted by this cleanup. Confirm code ownership and third-party obligations before selecting a license.
